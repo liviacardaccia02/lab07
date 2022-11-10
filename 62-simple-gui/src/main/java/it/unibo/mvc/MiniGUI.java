@@ -1,8 +1,14 @@
 package it.unibo.mvc;
 
+import javax.naming.spi.DirStateFactory.Result;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import org.w3c.dom.Text;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -29,17 +35,30 @@ public class MiniGUI {
     public MiniGUI() {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
-        final JButton write = new JButton("Print a random number on standard output");
-        canvas.add(write, BorderLayout.CENTER);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        /*
+         * First part 
+         */
+        final JPanel panel = new JPanel();
+        final JButton write = new JButton("Print a random number on standard output");
+        panel.setLayout(new BoxLayout(panel, BoxLayout.LINE_AXIS));
+        canvas.add(panel, BorderLayout.CENTER);
+        panel.add(write);
+        /*
+         * Second part
+         */
+        final JTextField result = new JTextField("Result: ");
+        panel.add(result, BorderLayout.NORTH);
         /*
          * Handlers
          */
         write.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                System.out.println(randomGenerator.nextInt());
+                final int rand = randomGenerator.nextInt();
+                System.out.println(rand);
+                result.setText("Result: " + Integer.toString(rand));
             }
         });
     }
