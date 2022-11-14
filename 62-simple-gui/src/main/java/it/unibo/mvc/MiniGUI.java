@@ -1,14 +1,10 @@
 package it.unibo.mvc;
 
-import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import org.w3c.dom.Text;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
