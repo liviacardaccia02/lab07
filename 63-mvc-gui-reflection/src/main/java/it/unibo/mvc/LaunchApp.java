@@ -12,8 +12,6 @@ import it.unibo.mvc.model.DrawNumberImpl;
  */
 public final class LaunchApp {
 
-    private final static int NUM_VIEWS = 3; 
-
     private LaunchApp() { }
 
     /**
@@ -37,7 +35,7 @@ public final class LaunchApp {
         final DrawNumberView newSwingView = (DrawNumberView) s.newInstance();
         final DrawNumberView newOutputView = (DrawNumberView) o.newInstance();
 
-        for (int i = 0; i < NUM_VIEWS; i++) {
+        for (int i = 0; i < 3; i++) {
             app.addView(newSwingView);
             app.addView(newOutputView);
         }
